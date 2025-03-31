@@ -31,5 +31,21 @@ return client ? client.getTotalSpent() : 0;}} // finds client by name and return
 const salesRep = new SalesRep("Krillin");
 salesRep.addClient(customer1);
 console.log(`SalesRep: ${salesRep.name}, Total Spent by ${customer1.name}: $${salesRep.getClientTotal("Goku")}`); // Customer situation 
+
+// Task 3: Create a VIPCustomer Class (Extends Customer) //
+class VIPCustomer extends Customer {
+constructor(name, email, vipLevel) {
+    super(name, email);
+    this.vipLevel = vipLevel;} // Store VIP level like gold and platinum 
+        
+getTotalSpent() {
+return super.getTotalSpent() * 1.1;}} // 10% loyalty bonus
+    
+const vipCustomer1 = new VIPCustomer("Vegeta", "PrinceVegeta@gmail.com", "Platinum");
+vipCustomer1.addPurchase(950); // 950$ Purchase
+vipCustomer1.addPurchase(820); // 820$ Purchase 
+console.log(`VIP Customer: ${vipCustomer1.name}, Total Spent (with bonus): $${vipCustomer1.getTotalSpent()}`); // Customer situation 
+salesRep.addClient(vipCustomer1); // Added VIP Customer to list 
+    
     
     
