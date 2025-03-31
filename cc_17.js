@@ -46,6 +46,15 @@ vipCustomer1.addPurchase(950); // 950$ Purchase
 vipCustomer1.addPurchase(820); // 820$ Purchase 
 console.log(`VIP Customer: ${vipCustomer1.name}, Total Spent (with bonus): $${vipCustomer1.getTotalSpent()}`); // Customer situation 
 salesRep.addClient(vipCustomer1); // Added VIP Customer to list 
-    
+
+// Task 4: Build a Client Report System //
+const customers = [customer1, vipCustomer1]; // All customers
+const totalRevenue = customers.reduce((total, customer) => total + customer.getTotalSpent(), 0); // Reduce to calculate otal revenue for all customers
+const highSpenders = customers.filter(customer => customer.getTotalSpent() > 500); // Filter for 500+
+const customerSummaries = customers.map(customer => ({ name: customer.name, totalSpent: customer.getTotalSpent() })); // Map to create a array of customer names and total spending
+
+console.log(`Total Revenue: $${totalRevenue}`);
+console.log("High-Spending Customers:", highSpenders);
+console.log("Customer Summary:", customerSummaries); // Logs  
     
     
